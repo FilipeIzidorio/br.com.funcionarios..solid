@@ -1,8 +1,8 @@
 package Funcionarios;
 
-import Interfaces.IAutenticavel;
+import Interfaces.IHorario;
 
-public class Funcionario {
+public class Funcionario implements IHorario {
     private int Matricula;
     private String Nome;
     private String cargo;
@@ -68,6 +68,19 @@ public class Funcionario {
                 ", salario=" + salario +
                 '}';
     }
+    String horario = "TRABALHA 8 HORAS DO POR DIA TEM DUAS HORAS DE ALMOCO ";
 
+    public String getHorario() {
+        return horario;
+    }
 
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    @Override
+    public void HorarioTrabalhado() {
+        System.out.println(horario);
+
+    }
 }

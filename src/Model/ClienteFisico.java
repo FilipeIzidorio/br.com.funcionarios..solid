@@ -1,23 +1,23 @@
 package Model;
 
 
-import java.util.UUID;
+import java.util.ArrayList;
 
 public class ClienteFisico extends Cliente {
+
+    ArrayList listClienteFisico = new ArrayList();
 
     String nomeCompleto;
     String cpf;
     String rg;
     String orgaoEmissor;
-    Endereco endereco;
 
-    public ClienteFisico(String nomeCompleto, String cpf, String rg, String orgaoEmissor,String cep, String uf, String cidade, String bairro, String logradouro, String complemento, boolean clienteAtivo, String cadastro) {
-        super(cep, uf, cidade, bairro, logradouro, complemento, clienteAtivo, cadastro);
+    public ClienteFisico(boolean clienteAtivo, String cadastro, Endereco endereco, String nomeCompleto, String cpf, String rg, String orgaoEmissor) {
+        super(clienteAtivo, cadastro, endereco);
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
         this.rg = rg;
         this.orgaoEmissor = orgaoEmissor;
-
     }
 
     public String getNomeCompleto() {
@@ -25,6 +25,7 @@ public class ClienteFisico extends Cliente {
     }
 
     public void setNomeCompleto(String nomeCompleto) {
+        listClienteFisico.add(nomeCompleto);
         this.nomeCompleto = nomeCompleto;
     }
 
@@ -33,11 +34,8 @@ public class ClienteFisico extends Cliente {
     }
 
     public void setCpf(String cpf) {
+        listClienteFisico.add(cpf);
         this.cpf = cpf;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     public String getRg() {
@@ -45,6 +43,7 @@ public class ClienteFisico extends Cliente {
     }
 
     public void setRg(String rg) {
+        listClienteFisico.add(rg);
         this.rg = rg;
     }
 
@@ -53,105 +52,23 @@ public class ClienteFisico extends Cliente {
     }
 
     public void setOrgaoEmissor(String orgaoEmissor) {
+        listClienteFisico.add(orgaoEmissor);
         this.orgaoEmissor = orgaoEmissor;
-    }
-
-
-
-
-    @Override
-    public UUID getId() {
-        return super.getId();
-    }
-
-    @Override
-    public boolean isClienteAtivo() {
-        return super.isClienteAtivo();
-    }
-
-    @Override
-    public void setClienteAtivo(boolean clienteAtivo) {
-        super.setClienteAtivo(clienteAtivo);
-    }
-
-    @Override
-    public String getCadastro() {
-        return super.getCadastro();
-    }
-
-    @Override
-    public void setCadastro(String cadastro) {
-        super.setCadastro(cadastro);
-    }
-
-    @Override
-    public String getCep() {
-        return super.getCep();
-    }
-
-    @Override
-    public void setCep(String cep) {
-        super.setCep(cep);
-    }
-
-    @Override
-    public String getUf() {
-        return super.getUf();
-    }
-
-    @Override
-    public void setUf(String uf) {
-        super.setUf(uf);
-    }
-
-    @Override
-    public String getCidade() {
-        return super.getCidade();
-    }
-
-    @Override
-    public void setCidade(String cidade) {
-        super.setCidade(cidade);
-    }
-
-    @Override
-    public String getBairro() {
-        return super.getBairro();
-    }
-
-    @Override
-    public void setBairro(String bairro) {
-        super.setBairro(bairro);
-    }
-
-    @Override
-    public String getLogradouro() {
-        return super.getLogradouro();
-    }
-
-    @Override
-    public void setLogradouro(String logradouro) {
-        super.setLogradouro(logradouro);
-    }
-
-    @Override
-    public String getComplemento() {
-        return super.getComplemento();
-    }
-
-    @Override
-    public void setComplemento(String complemento) {
-        super.setComplemento(complemento);
     }
 
     @Override
     public String toString() {
-        return "\nClienteFisico{" +
-                "nomeCompleto='" + nomeCompleto + '\'' +
+        return "ClienteFisico{" +
+                " nomeCompleto='" + nomeCompleto + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", rg='" + rg + '\'' +
                 ", orgaoEmissor='" + orgaoEmissor + '\'' +
-                '}'+super.toString();
+                ", clienteAtivo=" + clienteAtivo +
+                ", cadastro='" + cadastro + '\'' +
+                '}'+
+                "\n" + endereco +
+                "\n\nLista De Clientes Fisicos =" + listClienteFisico +"\n"
+                ;
     }
 }
 

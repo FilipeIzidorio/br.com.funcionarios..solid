@@ -1,9 +1,6 @@
 package Model;
 
-import java.util.UUID;
-
 public class Endereco {
-    UUID id;
     String cep;
     String uf;
     String cidade;
@@ -12,7 +9,6 @@ public class Endereco {
     String complemento;
 
     public Endereco(String cep, String uf, String cidade, String bairro, String logradouro, String complemento) {
-        this.id = UUID.randomUUID();
         this.cep = cep;
         this.uf = uf;
         this.cidade = cidade;
@@ -21,22 +17,13 @@ public class Endereco {
         this.complemento = complemento;
     }
 
-    public Endereco() {
-
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-
-
     public String getCep() {
         return cep;
     }
 
     public void setCep(String cep) {
         this.cep = cep;
+
     }
 
     public String getUf() {
@@ -45,6 +32,7 @@ public class Endereco {
 
     public void setUf(String uf) {
         this.uf = uf;
+
     }
 
     public String getCidade() {
@@ -53,6 +41,7 @@ public class Endereco {
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
+
     }
 
     public String getBairro() {
@@ -61,6 +50,7 @@ public class Endereco {
 
     public void setBairro(String bairro) {
         this.bairro = bairro;
+
     }
 
     public String getLogradouro() {
@@ -69,6 +59,7 @@ public class Endereco {
 
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
+
     }
 
     public String getComplemento() {
@@ -77,12 +68,13 @@ public class Endereco {
 
     public void setComplemento(String complemento) {
         this.complemento = complemento;
+
     }
 
     @Override
     public String toString() {
         return "\nEndereco{" +
-                ", cep='" + cep + '\'' +
+                "cep='" + cep + '\'' +
                 ", uf='" + uf + '\'' +
                 ", cidade='" + cidade + '\'' +
                 ", bairro='" + bairro + '\'' +
@@ -90,4 +82,5 @@ public class Endereco {
                 ", complemento='" + complemento + '\'' +
                 '}';
     }
+
 }

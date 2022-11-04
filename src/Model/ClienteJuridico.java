@@ -1,7 +1,10 @@
 package Model;
 
 
+import java.util.ArrayList;
+
 public class ClienteJuridico extends Cliente {
+    ArrayList listClienteJuridica = new ArrayList();
     String cnpj;
     String razaoSocial;
     String nomeFantasia;
@@ -9,23 +12,21 @@ public class ClienteJuridico extends Cliente {
     String inscricaoEstatual;
     String inscricaoMunicipal;
 
-    public ClienteJuridico(boolean clienteAtivo, String cadastro, String cnpj, String razaoSocial, String nomeFantasia,String inscricaoEstatual, String inscricaoMunicipal, String cep, String uf, String cidade, String bairro, String logradouro, String complemento) {
-        super(cep, uf, cidade, bairro, logradouro, complemento, clienteAtivo, cadastro);
+    public ClienteJuridico(boolean clienteAtivo, String cadastro, Endereco endereco, String cnpj, String razaoSocial, String nomeFantasia, String inscricaoEstatual, String inscricaoMunicipal) {
+        super(clienteAtivo, cadastro, endereco);
         this.cnpj = cnpj;
         this.razaoSocial = razaoSocial;
         this.nomeFantasia = nomeFantasia;
-
         this.inscricaoEstatual = inscricaoEstatual;
         this.inscricaoMunicipal = inscricaoMunicipal;
     }
-
-
 
     public String getCnpj() {
         return cnpj;
     }
 
     public void setCnpj(String cnpj) {
+        listClienteJuridica.add(cnpj);
         this.cnpj = cnpj;
     }
 
@@ -34,6 +35,7 @@ public class ClienteJuridico extends Cliente {
     }
 
     public void setRazaoSocial(String razaoSocial) {
+        listClienteJuridica.add(razaoSocial);
         this.razaoSocial = razaoSocial;
     }
 
@@ -42,24 +44,25 @@ public class ClienteJuridico extends Cliente {
     }
 
     public void setNomeFantasia(String nomeFantasia) {
+        listClienteJuridica.add(nomeFantasia);
         this.nomeFantasia = nomeFantasia;
     }
-
-
 
     public String getInscricaoEstatual() {
         return inscricaoEstatual;
     }
 
     public void setInscricaoEstatual(String inscricaoEstatual) {
+        listClienteJuridica.add(inscricaoEstatual);
         this.inscricaoEstatual = inscricaoEstatual;
     }
 
-    public String getIscricaoMunicipal() {
+    public String getInscricaoMunicipal() {
         return inscricaoMunicipal;
     }
 
-    public void setIscricaoMunicipal(String iscricaoMunicipal) {
+    public void setInscricaoMunicipal(String inscricaoMunicipal) {
+        listClienteJuridica.add(inscricaoMunicipal);
         this.inscricaoMunicipal = inscricaoMunicipal;
     }
 
@@ -71,6 +74,12 @@ public class ClienteJuridico extends Cliente {
                 ", nomeFantasia='" + nomeFantasia + '\'' +
                 ", inscricaoEstatual='" + inscricaoEstatual + '\'' +
                 ", inscricaoMunicipal='" + inscricaoMunicipal + '\'' +
-                '}'+super.toString();
+                ", clienteAtivo=" + clienteAtivo +
+                ", cadastro='" + cadastro + '\''+
+                '}' +
+                "\n" + endereco +
+                "\n\nLista De Clientes Fisicos =" + listClienteJuridica +"\n"
+                ;
     }
+
 }

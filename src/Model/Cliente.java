@@ -1,30 +1,16 @@
 package Model;
 
-import Interfaces.IAutenticavel;
-
-import java.util.UUID;
-
-public class Cliente extends Endereco{
-
-
-    UUID id;
+public class Cliente {
     boolean clienteAtivo;
     String cadastro;
 
+    Endereco endereco;
 
-
-    public Cliente(String cep, String uf, String cidade, String bairro, String logradouro, String complemento,boolean clienteAtivo,String cadastro) {
-        super();
-        this.id = UUID.randomUUID();
+    public Cliente(boolean clienteAtivo, String cadastro, Endereco endereco) {
         this.clienteAtivo = clienteAtivo;
         this.cadastro = cadastro;
+        this.endereco = endereco;
     }
-
-    public UUID getId() {
-        return id;
-    }
-
-
 
     public boolean isClienteAtivo() {
         return clienteAtivo;
@@ -42,11 +28,20 @@ public class Cliente extends Endereco{
         this.cadastro = cadastro;
     }
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
     @Override
     public String toString() {
-        return "\nCliente{" +
-                ", clienteAtivo=" + clienteAtivo +
-                ", cadastro=" + cadastro +
-                '}'+super.toString();
+        return "Cliente{" +
+                "\nclienteAtivo=" + clienteAtivo +
+                ", cadastro='" + cadastro + '\'' +
+                ", endereco=" + endereco +
+                '}';
     }
 }
